@@ -429,9 +429,9 @@ var CheckboxTree = function (_React$Component) {
                 onCheck = _props.onCheck,
                 onSelectNode = _props.onSelectNode;
 
-            console.log("before", onCheck);
+
             onSelectNode(node);
-            console.log("after");
+
             this.toggleChecked(node, node.checked, noCascade);
             onCheck(this.serializeList('checked'));
         }
