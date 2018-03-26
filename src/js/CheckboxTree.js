@@ -22,6 +22,7 @@ class CheckboxTree extends React.Component {
         showNodeIcon: PropTypes.bool,
         onCheck: PropTypes.func,
         onExpand: PropTypes.func,
+        onSelectNode:PropTypes.func,
     };
 
     static defaultProps = {
@@ -36,6 +37,7 @@ class CheckboxTree extends React.Component {
         showNodeIcon: true,
         onCheck: () => {},
         onExpand: () => {},
+        onSelectNode: () => {},
     };
 
     constructor(props) {
@@ -63,8 +65,10 @@ class CheckboxTree extends React.Component {
     }
 
     onCheck(node) {
-        const { noCascade, onCheck } = this.props;
-
+        const { noCascade, onCheck, onSelectNode } = this.props;
+        console.log("before",onCheck);
+        onSelectNode(node);
+        console.log("after");
         this.toggleChecked(node, node.checked, noCascade);
         onCheck(this.serializeList('checked'));
     }

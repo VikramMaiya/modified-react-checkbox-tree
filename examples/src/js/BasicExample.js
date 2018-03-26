@@ -95,21 +95,29 @@ class BasicExample extends React.Component {
             expanded: [
                 '/app',
             ],
+            selectednode: {}
         };
 
         this.onCheck = this.onCheck.bind(this);
         this.onExpand = this.onExpand.bind(this);
+        this.onSelectNode = this.onSelectNode.bind(this);
     }
 
     onCheck(checked) {
         this.setState({ checked });
+        console.log("clicked",checked);
     }
 
     onExpand(expanded) {
         this.setState({ expanded });
     }
+    onSelectNode(selectednode){
+
+       this.setState({ selectednode });
+    }
 
     render() {
+      console.log("selected", this.state.selectednode);
         const { checked, expanded } = this.state;
 
         return (
@@ -119,6 +127,7 @@ class BasicExample extends React.Component {
                 nodes={nodes}
                 onCheck={this.onCheck}
                 onExpand={this.onExpand}
+                onSelectNode={this.onSelectNode}
             />
         );
     }

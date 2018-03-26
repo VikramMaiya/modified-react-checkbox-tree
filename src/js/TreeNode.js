@@ -64,6 +64,7 @@ class TreeNode extends React.Component {
             expanded: !this.props.expanded,
         });
     }
+    
 
     hasChildren() {
         return this.props.rawChildren !== null;
@@ -102,17 +103,7 @@ class TreeNode extends React.Component {
         return <span className="rct-icon rct-icon-expand-open" />;
     }
 
-    renderCheckboxIcon() {
-        if (this.props.checked === 0) {
-            return <span className="rct-icon rct-icon-uncheck" />;
-        }
 
-        if (this.props.checked === 1) {
-            return <span className="rct-icon rct-icon-check" />;
-        }
-
-        return <span className="rct-icon rct-icon-half-check" />;
-    }
 
     renderNodeIcon() {
         if (this.props.icon !== null) {
@@ -168,14 +159,8 @@ class TreeNode extends React.Component {
                             type="checkbox"
                             onChange={this.onCheck}
                         />
-                        <span className="rct-checkbox">
-                            {this.renderCheckboxIcon()}
-                        </span>
-                        {showNodeIcon ? (
-                            <span className="rct-node-icon">
-                                {this.renderNodeIcon()}
-                            </span>
-                        ) : null}
+
+
                         <span className="rct-title">
                             {label}
                         </span>
