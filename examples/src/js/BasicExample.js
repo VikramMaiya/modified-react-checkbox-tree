@@ -105,14 +105,12 @@ class BasicExample extends React.Component {
 
     onCheck(checked) {
         this.setState({ checked });
-      
     }
 
     onExpand(expanded) {
         this.setState({ expanded });
     }
     onSelectNode(selectednode){
-
        this.setState({ selectednode });
     }
 
