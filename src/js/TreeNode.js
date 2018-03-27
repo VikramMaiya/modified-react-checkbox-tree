@@ -12,7 +12,6 @@ class TreeNode extends React.Component {
         expanded: PropTypes.bool.isRequired,
         label: PropTypes.node.isRequired,
         optimisticToggle: PropTypes.bool.isRequired,
-        showNodeIcon: PropTypes.bool.isRequired,
         treeId: PropTypes.string.isRequired,
         value: PropTypes.string.isRequired,
         onCheck: PropTypes.func.isRequired,
@@ -64,7 +63,6 @@ class TreeNode extends React.Component {
             expanded: !this.props.expanded,
         });
     }
-    
 
     hasChildren() {
         return this.props.rawChildren !== null;
@@ -103,8 +101,6 @@ class TreeNode extends React.Component {
         return <span className="rct-icon rct-icon-expand-open" />;
     }
 
-
-
     renderNodeIcon() {
         if (this.props.icon !== null) {
             return this.props.icon;
@@ -135,7 +131,6 @@ class TreeNode extends React.Component {
             className,
             disabled,
             label,
-            showNodeIcon,
             treeId,
             value,
         } = this.props;

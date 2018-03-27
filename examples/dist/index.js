@@ -19634,7 +19634,6 @@ var BasicExample = function (_React$Component) {
         key: 'onCheck',
         value: function onCheck(checked) {
             this.setState({ checked: checked });
-            console.log("clicked", checked);
         }
     }, {
         key: 'onExpand',

@@ -105,7 +105,7 @@ class BasicExample extends React.Component {
 
     onCheck(checked) {
         this.setState({ checked });
-        console.log("clicked",checked);
+      
     }
 
     onExpand(expanded) {

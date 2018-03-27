@@ -39,22 +39,6 @@ describe('<TreeNode />', () => {
     });
 
     describe('checked', () => {
-        it('should render icons associated with each check state', () => {
-            const iconMap = {
-                0: <span className="rct-icon rct-icon-uncheck" />,
-                1: <span className="rct-icon rct-icon-check" />,
-                2: <span className="rct-icon rct-icon-half-check" />,
-            };
-
-            Object.keys(iconMap).forEach((state) => {
-                const wrapper = shallow(
-                    <TreeNode {...baseProps} checked={parseInt(state, 10)} />,
-                );
-
-                assert.isTrue(wrapper.contains(iconMap[state]));
-            });
-        });
-
         it('should render an unchecked input element when not set to 1', () => {
             const wrapper1 = shallow(
                 <TreeNode {...baseProps} checked={0} />,
@@ -126,38 +110,6 @@ describe('<TreeNode />', () => {
 
             assert.isFalse(wrapper.find(TreeNode).exists());
         });
-
-        it('should render expanded icons when set to true', () => {
-            const wrapper = shallow(
-                <TreeNode {...baseProps} expanded rawChildren={[{ value: 'europa', label: 'Europa' }]} />,
-            );
-
-            assert.isTrue(wrapper.contains(<span className="rct-icon rct-icon-expand-open" />));
-            assert.isTrue(wrapper.contains(<span className="rct-icon rct-icon-parent-open" />));
-        });
-
-        it('should render collapsed icons when set to false', () => {
-            const wrapper = shallow(
-                <TreeNode {...baseProps} expanded={false} rawChildren={[{ value: 'europa', label: 'Europa' }]} />,
-            );
-
-            assert.isTrue(wrapper.contains(<span className="rct-icon rct-icon-expand-close" />));
-            assert.isTrue(wrapper.contains(<span className="rct-icon rct-icon-parent-close" />));
-        });
-    });
-
-    describe('icon', () => {
-        it('should replace the node\'s icons with the supplied value', () => {
-            const wrapper = shallow(
-                <TreeNode {...baseProps} icon={<span className="fa fa-plus" />} />,
-            );
-
-            assert.isTrue(wrapper.contains(
-                <span className="rct-node-icon">
-                    <span className="fa fa-plus" />
-                </span>,
-            ));
-        });
     });
 
     describe('label', () => {
@@ -173,18 +125,6 @@ describe('<TreeNode />', () => {
     });
 
     describe('showNodeIcon', () => {
-        it('should render the node icon when true', () => {
-            const wrapper = shallow(
-                <TreeNode {...baseProps} />,
-            );
-
-            assert.isTrue(wrapper.contains(
-                <span className="rct-node-icon">
-                    <span className="rct-icon rct-icon-leaf" />
-                </span>,
-            ));
-        });
-
         it('should not render the node icon when false', () => {
             const wrapper = shallow(
                 <TreeNode {...baseProps} showNodeIcon={false} />,
